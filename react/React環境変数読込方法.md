@@ -7,7 +7,7 @@ npm install --save-dev dotenv-cli
 
 * ### **環境変数のファイルを作成**
 ```php
-├ .env                # ローカル環境 *今回はすでに作成済みでローカルでの作業
+├ .env                # ローカル環境ー今回はローカルでの作業のためここのみ
 ├ .env.development    # 開発環境
 ├ .env.staging        # 検証環境
 ├ .env.production     # 本番環境

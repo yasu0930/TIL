@@ -2,7 +2,7 @@
 * ### **リダイレクトページを作成**
 前提としてユーザーが「ログイン」ボタンを押した時に遷移するページを作成しておく。
 
-APIのapi/loginからリダイレクトURLを取得する
+APIのapi/loginからリダイレクトURLを取得する
 ```php
 import React, { useState, useEffect } from "react";
 import axios from 'axios';

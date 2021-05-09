@@ -12,11 +12,11 @@ const Redirect = () => {
 
     // RedirectURLの取得
     useEffect(() => {
-        const getAuthUrl = async () => {
-            const res = await axios.get(API_URL + "api/login");
-            window.location.href = res.data.redirect_url;
-        }
-        getAuthUrl()
+        axios.get(API_URL + "api/login").then(res => {
+            window.location.href = res.data.target_url;
+        }).catch(err => {
+    
+        })
     }, []);
 
     return (
@@ -27,6 +27,5 @@ const Redirect = () => {
 }
 
 export default Redirect;
-
 ```
 useEffectでリダイレクトURLをsetXX系で管理していないのは、値を更新しても、即座には変更されないため。その値を後続の処理でも使いたい場合は、変数に入れて使いまわしたりしてください。

@@ -1,4 +1,4 @@
-# **Reactでlineloginの実装**
+# **ReactとLaravelでlineloginの実装**
 * ### **リダイレクトページを作成**
 前提としてユーザーが「ログイン」ボタンを押した時に遷移するページを作成しておく。
 
@@ -29,3 +29,18 @@ const Redirect = () => {
 export default Redirect;
 ```
 useEffectでリダイレクトURLをsetXX系で管理していないのは、値を更新しても、即座には変更されないため。その値を後続の処理でも使いたい場合は、変数に入れて使いまわしたりしてください。
+
+* ### **リダイレクトURLを取得するAPIを作成**
+reactで呼び出したapi/loginをLaravelで実装します。
+
+リダイレクトURLはLaravel Socialiteを使って取得します。
+```php
+use Laravel\Socialite\Contracts\Factory as Socialite;
+
+// SocialiteからリダイレクトURLを取得
+    public function redirectToProvider()
+    {
+        return response()->json(['target_url' => $this->socialite->driver('line')
+                                ->redirect()->getTargetUrl()]);
+    }
+```

@@ -13,7 +13,7 @@ const Redirect = () => {
     // RedirectURLの取得
     useEffect(() => {
         axios.get(API_URL + "api/login").then(res => {
-            window.location.href = res.data.target_url;
+            window.location.href = res.data.redirect_url;
         }).catch(err => {
     
         })

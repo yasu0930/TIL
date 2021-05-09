@@ -37,7 +37,7 @@ reactで呼び出したapi/loginをLaravelで実装します。
 ```php
 use Laravel\Socialite\Contracts\Factory as Socialite;
 
-// SocialiteからリダイレクトURLを取得
+    // SocialiteからリダイレクトURLを取得
     public function redirectToProvider()
     {
         return response()->json(['target_url' => $this->socialite->driver('line')

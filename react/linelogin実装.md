@@ -10,7 +10,7 @@ import axios from 'axios';
 const Redirect = () => {
     const API_URL = process.env.REACT_APP_API_URL;
 
-    // ブラウザリロード時にRedirectURLの取得
+    // RedirectURLの取得
     useEffect(() => {
         const getAuthUrl = async () => {
             const res = await axios.get(API_URL + "api/login");

@@ -30,8 +30,10 @@ export default Redirect;
 ```
 useEffectでリダイレクトURLをsetXX系で管理していないのは、値を更新しても、即座には変更されないため。その値を後続の処理でも使いたい場合は、変数に入れて使いまわしたりしてください。
 
+---
+
 * ### **リダイレクトURLを取得するAPIを作成**
-reactで呼び出したapi/loginをLaravelで実装します。
+reactで呼び出したapi/loginをLaravelで実装します。
 
 リダイレクトURLはLaravel Socialiteを使って取得します。
 ```php

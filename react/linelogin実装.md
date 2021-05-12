@@ -104,6 +104,7 @@ const CallBack = () => {
 
 export default CallBack;
 ```
+/api/callbackからAcessTokenを取得し、useStateへと保存しています。
 
 ---
 

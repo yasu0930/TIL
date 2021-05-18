@@ -1,1 +1,1 @@
-# **ReactとLaravelを使ったLINEログインの実装**
+# **AWS Amplify（Cognito）を使ったLINEログインの実装**

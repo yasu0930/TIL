@@ -1,6 +1,6 @@
 # **AWS Amplify（Cognito）を使ったLINEログインの実装**
 * ### **前提**
-・Amplifyの設定が完了していること(amplify configure、amplify initおよびamplify pushが済んでいること)
+・Amplify設定が完了していること(amplify configure、amplify initおよびamplify pushが済んでいること)
 
 ・Amplifyで作成したreact.jsアプリが存在すること(aws-amplifyとaws-amplify-reactの導入・設定が済んでいること)
 

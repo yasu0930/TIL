@@ -124,3 +124,4 @@ hirosue@PC876 amplify-sns-fedaration % amplify push
 設定する値はhttps://（Step1で確認したドメイン）/oauth2/idpresponseです。
 
 * ### **フロント側の設定**
+

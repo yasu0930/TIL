@@ -139,7 +139,6 @@ hirosue@PC876 amplify-sns-fedaration % amplify push
 import { Auth } from "aws-amplify";
 //（...中略...）
 
-
     const signIn = async () => {
         await Auth.federatedSignIn({ provider: 'LINE' });
     }

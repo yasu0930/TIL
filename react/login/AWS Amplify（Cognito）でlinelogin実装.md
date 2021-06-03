@@ -131,7 +131,7 @@ hirosue@PC876 amplify-sns-fedaration % amplify push
 ```php
 <button onClick={signIn}>ログイン</button>
 ```
-ここでuseStateを使用して、サインイン状態で表示を切り替えるのがいいでしょう。
+ここでuseStateを使用して、サインイン状態で表示を切り替えるのがいいでしょう。
 
 **ログイン処理を追加**
 

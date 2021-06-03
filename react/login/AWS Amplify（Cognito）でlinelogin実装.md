@@ -1,5 +1,5 @@
 # **AWS Amplify（Cognito）を使ったLINEログインの実装**
-## **前提**
+### **前提**
 * Amplifyの設定が完了していること(amplify configure、amplify initおよびamplify pushが済んでいること)
 
 * Amplifyで作成したreact.jsアプリが存在すること(aws-amplifyとaws-amplify-reactの導入・設定が済んでいること)
@@ -14,7 +14,7 @@ Current Environment: prod
 | -------- | ------------- | --------- | --------------- |
 ```
 
-## **手順**
+### **手順**
 
 LINEとのログイン連携の手順は以下のとおりです。
 
@@ -27,7 +27,7 @@ LINEとのログイン連携の手順は以下のとおりです。
 4. LINE側（LINE Developers）にリダイレクトURLの設定
 
 
-## **1. LINE側（LINE Developers）の設定**
+### **1. LINE側（LINE Developers）の設定**
 
 
 今回は、下記簡略に手順だけ記載する。
@@ -36,7 +36,7 @@ LINEとのログイン連携の手順は以下のとおりです。
 
 ---
 
-## **2. 認証モジュールの追加（amplify add auth）**
+### **2. 認証モジュールの追加（amplify add auth）**
 下記、設定の全文となります。
 
 ```php
@@ -70,7 +70,7 @@ hirosue@PC876 amplify-sns-fedaration % amplify push
 
 ---
 
-## **3. CongnitoのLINE連携（OpenID Connect）設定**
+### **3. CongnitoのLINE連携（OpenID Connect）設定**
 
  ### **Step1. AWSにログインして、Cognitoのサービスページに移動します。**
  ### **Step2. ユーザプールを選択します。**
@@ -106,7 +106,7 @@ hirosue@PC876 amplify-sns-fedaration % amplify push
 
 ---
 
-## **4. LINE側（LINE Developers）にリダイレクトURLの設定**
+### **4. LINE側（LINE Developers）にリダイレクトURLの設定**
 
 1. LINE側（LINE Developers）の設定で作成した「プロバイダー」にCognitoで作成された認証のリダイレクトURLを設定します。
 ### **Step1. Amplifyの設定ファイル（aws-exports.js）を確認して、Cognitoのドメインを確認します。**
@@ -122,7 +122,7 @@ hirosue@PC876 amplify-sns-fedaration % amplify push
 
 設定する値はhttps://（Step1で確認したドメイン）/oauth2/idpresponseです。
 
-## **フロント側の設定**
+### **フロント側の設定**
 
 
 

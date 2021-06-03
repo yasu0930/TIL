@@ -18,7 +18,6 @@ Current Environment: prod
 
 LINEとのログイン連携の手順は以下のとおりです。
 
-
 1.LINE側（LINE Developers）の設定
 
 2.認証モジュールの追加（amplify add auth）

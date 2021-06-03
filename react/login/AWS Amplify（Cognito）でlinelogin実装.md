@@ -29,10 +29,10 @@ LINEとのログイン連携の手順は以下のとおりです。
 
 ### **1. LINE側（LINE Developers）の設定**
 
-
 今回は、下記簡略に手順だけ記載する。
- ### **Step1. LINE Developers ( https://developers.line.biz/ja/ ） にログインします**
- ### **Step2. プロバイダーを作成します。**
+**Step1. LINE Developers ( https://developers.line.biz/ja/ ） にログインします**
+
+**Step2. プロバイダーを作成します。**
 
 ---
 
@@ -72,13 +72,14 @@ hirosue@PC876 amplify-sns-fedaration % amplify push
 
 ### **3. CongnitoのLINE連携（OpenID Connect）設定**
 
- ### **Step1. AWSにログインして、Cognitoのサービスページに移動します。**
- ### **Step2. ユーザプールを選択します。**
+**Step1. AWSにログインして、Cognitoのサービスページに移動します。**
+
+**Step2. ユーザプールを選択します。**
 
 「ユーザープールの管理」を選択し、2.認証モジュールの追加で作成した「ユーザープール」を選択します。
 
 対象の「ユーザープール」の名称は、Amplifyの状態（amplify status）で確認したリソース名（Resource name）で始まります。
- ### **Step3. 「ID プロバイダー」（OpenID Connect）を追加します。**
+**Step3. 「ID プロバイダー」（OpenID Connect）を追加します。**
 
 | 項目名 | 値  
 |:------|:------
@@ -96,11 +97,11 @@ hirosue@PC876 amplify-sns-fedaration % amplify push
 * （参考リンク）LINEとの連携設定
 
 [LINE Developer 設定](https://blog.u-chan-chi.com/post/amplify-oidc-line-vue/#Line-Developer%E8%A8%AD%E5%AE%9A)
- ### **Step4. Step3で作成した「ID プロバイダー」（OpenID Connect）の属性マッピングを変更します。**
+**Step4. Step3で作成した「ID プロバイダー」（OpenID Connect）の属性マッピングを変更します。**
 
  2. 認証モジュールの追加で作成した「ユーザープール」はName属性が必須であるため、sub⇆Nameのマッピングを追加します。
 
- ### **Step5. アプリクライアントの設定でLINEログインを有効化します。**
+**Step5. アプリクライアントの設定でLINEログインを有効化します。**
 
 作成されている2つのアプリクライアント（xxxxxxxxxxxxxx_app_clientおよびxxxxxxxxxxxxxx_app_clientWeb）に対し、LINE連携を有効化します（チェックして保存する）。
 
@@ -109,7 +110,8 @@ hirosue@PC876 amplify-sns-fedaration % amplify push
 ### **4. LINE側（LINE Developers）にリダイレクトURLの設定**
 
 1. LINE側（LINE Developers）の設定で作成した「プロバイダー」にCognitoで作成された認証のリダイレクトURLを設定します。
-### **Step1. Amplifyの設定ファイル（aws-exports.js）を確認して、Cognitoのドメインを確認します。**
+
+**Step1. Amplifyの設定ファイル（aws-exports.js）を確認して、Cognitoのドメインを確認します。**
 
 2. 認証モジュールの追加の結果作成された、Amplifyの設定ファイル（aws-exports.js）のCognitoのドメインの箇所を確認します。
 
@@ -117,17 +119,32 @@ hirosue@PC876 amplify-sns-fedaration % amplify push
 % cat src/aws-exports.js | grep domain
         "domain": "amplifysnsfedarationyyyyyyy-xxxxxxx-prod.auth.ap-northeast-1.amazoncognito.com",
 ```
-### **Step2. 1. LINE側（LINE Developers）の設定で作成した「プロバイダー」にCognitoで作成された認証のリダイレクトURLを設定します。**
+**Step2. 1. LINE側（LINE Developers）の設定で作成した「プロバイダー」にCognitoで作成された認証のリダイレクトURLを設定します。**
 「TOP」-「Cognito Test」-「Cognito Test」-「LINE Login」と移動して、リダイレクトURL（CallBack URL）を入力します。
 
 設定する値はhttps://（Step1で確認したドメイン）/oauth2/idpresponseです。
 
+---
+
 ### **フロント側の設定**
+**「LINEでログイン」のリンクを追加**
+```php
+<button onClick={signIn}>ログイン</button>
+```
+ここでuseStateを使用して、サインイン状態で表示を切り替えるのがいいでしょう。
+
+**ログイン処理を追加**
+
+```php
+import { Auth } from "aws-amplify";
+//（...中略...）
+
+
+    const signIn = async () => {
+        await Auth.federatedSignIn({ provider: 'LINE' });
+    }
+```
 
 
 
-
-
-
-
-
+**これで最低限の実装は完了しましたが、他にも様々やり方あると思いますので、参考程度に。**

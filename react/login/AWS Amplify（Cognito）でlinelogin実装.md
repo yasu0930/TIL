@@ -97,6 +97,7 @@ hirosue@PC876 amplify-sns-fedaration % amplify push
 * （参考リンク）LINEとの連携設定
 
 [LINE Developer 設定](https://blog.u-chan-chi.com/post/amplify-oidc-line-vue/#Line-Developer%E8%A8%AD%E5%AE%9A)
+
 **Step4. Step3で作成した「ID プロバイダー」（OpenID Connect）の属性マッピングを変更します。**
 
  2. 認証モジュールの追加で作成した「ユーザープール」はName属性が必須であるため、sub⇆Nameのマッピングを追加します。
